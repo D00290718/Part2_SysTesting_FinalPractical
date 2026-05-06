@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Timetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: grey;
+        }
+        #container { 
+            min-width: 300px; 
+            max-width: 1000px; 
+            margin: auto;
+            padding: 1rem;
+            background-color: #f0f0f0;
+             border-color: blueviolet;
+            border-width: 2px;
+            border-style: solid;
+            border-radius: 5%;
+        }
+        table {
+            margin: auto;
+            width:50%
+            
+        }
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 8px;
+        }
+
+        #logo {
+            display: inline-block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        #title1 {
+            font-size: 4rem;
+            color: blueviolet;
+            float:right;
+            padding-right: 2rem;
+        }
+
+        header {
+            min-height: 10vh;
+        }
+        main {
+            text-align: center;
+            min-height: 50vh;
+           
+        }
+        
+   
+    </style>
+</head>
+<body>
+    <div id="container">
+        <header>
+            <img id="logo" src="{{url_for('static', filename='dklogo.png')}}" alt="DkIT current Logo" style="width:150px; ">
+            <span id="title1">Student Timetable Viewer</span>
+        </header>
+        <br><br><br><br><br><br><br><br><br>    
+    <main>
+   
+
+    <form method="POST">
+        <label id="label1">Enter timetable filename (e.g., timetable.txt):</label>
+        <input type="text" name="filename" id="filename" required>
+        <button id="submit-btn" type="submit">Load Timetable</button>
+    </form>
+
+    {% if timetable %}
+        <h2>Timetable</h2>
+        <table>
+            <thead>
+                <tr style="background-color: #909090;">
+                    <th>Subject</th>
+                    <th>Time</th>
+                    <th>Room</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for entry in timetable %}
+                <tr style="background-color: {{ entry.bgcolour }};">
+                    <td>{{ entry.subject }}</td>
+                    <td>{{ entry.time }}</td>
+                    <td>{{ entry.room }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+
+    {% if error %}
+        <p style="color:red;">{{ error }}</p>
+    {% endif %}
+</main>
+<footer>
+    <p id="copy">&copy; Peter Gosling 2026 Student Timetable Viewer. All rights reserved.</p>
+    <address>
+        <p>Dublin Road, Dundalk Contact: <a href="mailto:peter.gosling@dkit.ie">peter.gosling@dkit.ie</a></p>
+    </address>
+</footer>
+</div><!-- end container-->
+</body>
+</html>
