@@ -1,0 +1,6 @@
+Intro to Sys Admin/ 09:00/ P1153/rgba(204, 229, 255, 1)
+Intro to Prog/ 11:00/ P1107/rgba(212, 237, 218, 1)
+Networking/ 13:00/ P1094/rgba(255, 243, 205, 1)
+Databases/ 15:00/ P1160/rgba(248, 215, 218, 1)
+Sys Testing/ 17:00/ P1106/ rgba(214, 96, 1, 1)
+Comms Skills/19:00/ P1103/rgba(86, 227, 229, 1)
